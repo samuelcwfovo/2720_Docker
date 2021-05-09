@@ -1,0 +1,227 @@
+/*
+//---------------------------------------------------
+// Cheng Yun Chueng 1155109570
+// Wong Kong Wa 1155127049
+// Chow Wang Faat 1155115793
+// Lau Pak Hei Anson 1155158646
+//---------------------------------------------------
+*/
+
+::-webkit-scrollbar {
+    width      : 0;
+    /* Remove scrollbar space */
+    background : transparent;
+    /* Optional: just make scrollbar invisible */
+}
+
+
+.dashboard-body {
+    margin     : 0;
+    overflow   : hidden;
+    font-family: 'Poppins', sans-serif;
+    /* color   : #c4c3ca; */
+    color      : black;
+    width      : 100%;
+    height     : 100vh;
+}
+
+.dashboard-wrapper {
+    height     : 100vh;
+    display    : grid;
+    grid       : [stack] 1fr / min-content [stack] 1fr;
+    user-select: none;
+}
+
+.app-logo {
+    min-width      : 14em;
+    display        : flex;
+    align-items    : center;
+    color          : #28c19e;
+    /* margin-right: 16px; */
+    /* padding     : 0 24px; */
+}
+
+.app-logo span {
+    color      : #fff;
+    display    : inline-block;
+    line-height: 24px;
+    font-size  : 16px;
+    margin     : auto;
+
+}
+
+
+.nav-wrapper {
+    display         : flex;
+    flex-basis      : 240px;
+    flex-direction  : column;
+    height          : 100%;
+    padding-top     : 1.5rem;
+    background-color: #28c19e;
+
+}
+
+.nav-list {
+    flex      : 1 1 0%;
+    margin-top: 40px;
+
+}
+
+.nav-list-item {
+    margin-bottom: 12px;
+    user-select  : none;
+}
+
+.nav-list-item a:hover {
+    color: #28c19e;
+}
+
+.nav-list-item:not(.active):hover {
+    background-color: #fff;
+}
+
+.nav-list-item.active .nav-list-link {
+    color           : #28c19e;
+    background-color: #fff;
+}
+
+.nav-list-item.active .nav-list-link:after {
+    height : 100%;
+    opacity: 1;
+}
+
+.nav-list-item.active svg {
+    color: #28c19e;
+}
+
+.nav-list-item svg {
+    margin-right: 12px;
+
+}
+
+/* .nav-list-link:after {
+    content         : "";
+    height          : 100%;
+    width           : 2px;
+    background-color: #3d7eff;
+    right           : 0;
+    top             : 0;
+    position        : absolute;
+    border-radius   : 2px;
+    opacity         : 0;
+    height          : 0;
+} */
+
+
+.nav-list-link {
+    font-weight     : 500;
+    font-size       : 100%;
+    line-height     : 24px;
+    padding         : 8px 24px;
+    color           : #fff;
+    display         : flex;
+    align-items     : center;
+    position        : relative;
+    cursor          : pointer;
+    /* padding-right: 5em; */
+    text-decoration : none;
+    min-height      : 4rem;
+
+}
+
+
+
+.dashboard-main {
+    background-color: #fff;
+    z-index         : 1;
+    overflow-y      : scroll;
+}
+
+
+@media (min-width:740px) {
+    .dashboard-contaioner {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+
+@media (max-width: 740px) {
+
+    #sidenav-open,
+    .dashboard-main {
+        grid-area: stack;
+    }
+
+
+    #full-screen {
+        display: block !important;
+        color  : #fff;
+    }
+
+    #open-menu {
+        display: block !important;
+        color  : #28c19e;
+    }
+
+    #sidenav-open {
+        position           : sticky;
+        top                : 0;
+        max-height         : 100vh;
+        overflow           : hidden auto;
+        overscroll-behavior: contain;
+        visibility         : hidden;
+        transform          : translateX(-110vw);
+        will-change        : transform;
+        transition         : transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+            visibility 0s linear 0.6s;
+
+    }
+
+    #sidenav-open:target {
+        visibility: visible;
+        transform : translateX(0);
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    #sidenav-open:target~main {
+        z-index: -2;
+    }
+
+    .nav-wrapper {
+        box-shadow:
+            inset 0 -3em 3em rgba(0, 0, 0, 0.1),
+            0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+
+    }
+
+    .header {
+        padding: .5rem !important;
+    }
+
+}
+
+#dashboard-filter {
+    position       : fixed;
+    top            : 0;
+    right          : 0;
+    width          : 100%;
+    height         : 100vh;
+    backdrop-filter: blur(7px);
+    z-index        : -1;
+}
+
+#sidenav-open {
+    display              : grid;
+    grid-template-columns: [nav] 1fr [escape] 2fr;
+}
+
+
+.theme-text-color {
+    color: #28c19e;
+}
+
+
+
+.header {
+    background-color: #fff;
+}
